@@ -1,5 +1,4 @@
-frontend/my-app/img/intro.jpg
-frontend/my-app/.next
 frontend/my-app/node_modules
-
-backend/my-app/venv
+frontend/my-app/.next
+frontend/my-app/src/img/intro.jpg
+backend/venv
