@@ -5,7 +5,7 @@ import Image from "next/image";
 import { use, useEffect, useState } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Row, Col, Card } from "react-bootstrap";
-import Topbar from "../../topbar";
+import Topbar from "@src/topbar";
 
 const BasicInfo = () => (
   <Card>

@@ -3,7 +3,7 @@
 import Image, { StaticImageData } from "next/image";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Card, Col, Container, Row } from "react-bootstrap";
-import Topbar from "@src/topbar.tsx";
+import Topbar from "@src/topbar";
 import vaeimg from "@img/mu_map.png";
 import introimg from "@img/intro.jpg";
 import othelloimg from "@img/othello.png";
@@ -48,7 +48,7 @@ function Title() {
   return (
     <Container className="title-container">
       <header>
-          <h1 className="title">RyoIida's Portfolio</h1>
+          <h1 className="title">RyoIida&apos;s Portfolio</h1>
           <span className="subtitle">Introduction and My work</span>
       </header>
     </Container>

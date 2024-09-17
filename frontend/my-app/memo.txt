@@ -1,0 +1,13 @@
+npm install
+npm run build
+
+.env.localの書き替え
+
+pm2 list
+pm2 stop hoge
+pm2 delete all
+pm2 flush
+pm2 set pm2-logrotate:max_size 10M
+pm2 set pm2-logrotate:retain 5
+pm2 start npm --name hogehoge -- run start
+pm2 save

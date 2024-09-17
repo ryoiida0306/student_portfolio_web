@@ -1,6 +1,6 @@
 "use client";
 
-import Topbar from "@src/topbar.tsx";
+import Topbar from "@src/topbar";
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
 
