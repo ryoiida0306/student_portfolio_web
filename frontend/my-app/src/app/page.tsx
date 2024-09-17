@@ -1,15 +1,12 @@
 "use client";
 
-import exp from "constants";
 import Image, { StaticImageData } from "next/image";
-import { use, useEffect, useState } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button, Card, Col, Container, Nav, Navbar, NavDropdown, Row } from "react-bootstrap";
-import Topbar from "../topbar";
-import vaeimg from "@/img/mu_map.png";
-import introimg from "@/img/intro.jpg";
-import othelloimg from "@/img/sample.png";
-// import { useRouter } from "next/router";
+import { Button, Card, Col, Container, Row } from "react-bootstrap";
+import Topbar from "@src/topbar.tsx";
+import vaeimg from "@img/mu_map.png";
+import introimg from "@img/intro.jpg";
+import othelloimg from "@img/othello.png";
 
 export default function Home() {
   return (
@@ -122,18 +119,3 @@ function myCard(titletext:string, maintext:string, imgsrc:StaticImageData, link:
   </Card>
   );
 }
-
-
-
-
-
-
-      
-        {/* <main>
-          <h2>目次</h2>
-          <ul>
-            <li><a href="/introduction">自己紹介</a></li>
-            <li><a href="/work/ai/vae">AI</a></li>
-            <li><a href="/work/algorithm/othello">アルゴリズム</a></li>
-          </ul>
-        </main> */}

@@ -1,11 +1,11 @@
 "use client";
 
-import exp from "constants";
-import Topbar from "@/topbar";
-import Image from "next/image";
-import { use, useEffect, useState } from "react";
+import Topbar from "@src/topbar.tsx";
+import { useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
-import Latex from "react-latex-next";
+
+require('dotenv').config();
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 
 export default function Home() {
@@ -17,8 +17,21 @@ export default function Home() {
   const [isFetching, setIsFetching] = useState(false);
 
   useEffect(() => {
+    const canvas = document.getElementById("myCanvas") as HTMLCanvasElement;
+    const ctx = canvas.getContext("2d");
+    const img = new Image();
+    img.src = "/img/mu_map.png";
+    img.onload = () => {
+      ctx?.drawImage(img, 0, 0, canvas.width, canvas.height);
+    };
+    img.onerror = () => {
+      console.log("Error loading image");
+    }
+  }, []);
+
+  useEffect(() => {
     // GETを送る
-    fetch("http://localhost:8080/vae", {
+    fetch(API_URL + '/vae', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -31,7 +44,6 @@ export default function Home() {
       setIsFetching(true);
       const image : string = await req_python({ mu1, mu2, log_var1, log_var2 });
       setIsFetching(false);
-      // console.log("yaaaaa");
       setImagesrc(image);
     };
     fetchImage();
@@ -106,7 +118,7 @@ export default function Home() {
 
 async function req_python({ mu1, mu2, log_var1, log_var2 }: { mu1: number, mu2: number, log_var1: number, log_var2: number }) {
 
-  const url = "http://localhost:8080/vae";
+  const url = API_URL + '/vae';
   const data = { mu1, mu2, log_var1, log_var2 };
   console.log(JSON.stringify(data));
 

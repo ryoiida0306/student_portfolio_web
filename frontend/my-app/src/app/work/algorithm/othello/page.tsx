@@ -1,11 +1,11 @@
 "use client";
 
-import exp from "constants";
-import Topbar from "@/topbar";
-import Image from "next/image";
-import { Dispatch, SetStateAction, use, useEffect, useState } from "react";
+import Topbar from "@src/topbar.tsx";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
 
+require('dotenv').config();
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 export default function Home() {
   const [table, setTable] = useState(Array(8).fill(Array(8).fill(0)));
@@ -14,9 +14,9 @@ export default function Home() {
   const [white, setWhite] = useState(0);
   const [isFinished, setIsFinished]: [boolean, Dispatch<SetStateAction<boolean>>] = useState(false);
   const [winner, setWinner] = useState(0);
-
+  
   useEffect(() => {
-    fetch("http://localhost:8080/othello", {
+    fetch(API_URL + '/othello', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -51,7 +51,7 @@ export default function Home() {
         <table className="othello-board">
           <tbody>
             {table.map((row: number[], i) => (
-              <tr key={i} className="othello-cell">
+              <tr key={i}>
                 {row.map((cell: number, j) => (
                   <td key={j} onClick={othelloHandler(i, j)} className="othello-cell" >
                     {renderCell(cell)}
@@ -103,7 +103,7 @@ export default function Home() {
 }
 
 async function post_data(data: {x: number, y: number}) {
-  const res = await fetch("http://localhost:8080/othello", {
+  const res = await fetch(API_URL + '/othello', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

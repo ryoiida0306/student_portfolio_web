@@ -58,9 +58,10 @@ body {
 }
 
 .othello-board {
-  border-collapse: collapse;
-  background-color: green;
   margin: 0 auto;
+  aspect-ratio: 1 / 1;
+  width: 400px;
+  height: 400px;
 }
 .othello-board td {
   width: 50px;
@@ -74,16 +75,19 @@ body {
   height: 70%;
   background-color: black;
   border-radius: 50%;
+  margin: 0 auto;
 }
 .white-stone {
   width: 70%;
   height: 70%;
   background-color: white;
   border-radius: 50%;
+  margin: 0 auto;
 }
 .empty-cell {
   width: 100%;
   height: 100%;
+  margin: 0 auto;
 }
 
 .can-cell {
@@ -91,6 +95,7 @@ body {
   height: 40%;
   background-color: lightgreen;
   border-radius: 50%;
+  margin: 0 auto;
 }
 
 .othello-cell {
@@ -98,5 +103,10 @@ body {
   vertical-align: middle;
   margin : 0;
   padding : 0;
-  
+  aspect-ratio: 1 / 1;
+  width : 50px;
+  height : 50px;
+  border-collapse: collapse;
+  background-color: green;
+  border: 3px solid black;
 }
