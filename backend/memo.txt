@@ -1,0 +1,12 @@
+forever stop <pid>
+
+pip install -r requirements.txt --cache-dir ../tmp
+
+.envを編集
+CORS_HOST=localhost -> iidaryo-portfolio
+CORS_PORT=3000
+
+FLASK_RUN_HOST=localhost -> 0.0.0.0
+FLASK_RUN_PORT=8080
+
+forever start -c python3 src/app.py 
