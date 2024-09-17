@@ -95,44 +95,6 @@ class Othello:
             }, 200
         
 
-
-        # while( is_can(canTable(Table,1)) or is_can(canTable(Table,-1))) :
-        # print("{}の番".format(toS(turn)))
-        
-        # canT = canTable(Table,turn)
-        # if(not is_can(canT)) :
-        #     print("{}はおけません．パスします．".format(toS(turn)))
-        #     turn = change(turn)
-        # print_board(Table)
-        # x, y = put()
-        # while(canT[x][y] == 0) :
-        #     print("({},{})にはおけません．おける場所を選択してください．".format(x+1,y+1))
-        #     print_board(canT)
-        #     x,y = put()
-        # Table = reverse(Table,turn,x,y)
-        # turn = change(turn)
-    
-    # print_result(Table)
-
-
-# def print_board(Table) :
-#     for i in range(13) :
-#         print("－", end = "")
-#     print()
-#     for i in Table :
-#         for j in i :
-#             cell = "　"
-#             if(j == 1) :
-#                 cell = "✕ "
-#             elif(j == -1) :
-#                 cell = "◯ "
-            
-#             print("|{}".format(cell) , end ="")
-#         print("|")
-#     for i in range(13) :
-#         print("－", end = "")
-#     print()
-
 def add_table(Table1,Table2) :
     newTable = [[0] * 8 for i in range(8)] 
     for i in range(8) :
@@ -267,28 +229,3 @@ def reverse(Table,turn,originx,originy) :
                 y += dy
                 newTable[x][y] = turn
     return newTable
-
-# def print_result(Table) :
-#     print_board(Table)
-#     blacknum = 0
-#     whitenum = 0
-#     for i in range(8) :
-#         for j in range(8) :
-#             if(Table[i][j] == 1) :
-#                 blacknum += 1
-#             if(Table[i][j] == -1) :
-#                 whitenum += 1
-#     win = 0
-#     if(blacknum > whitenum) :
-#         win = 1
-#     if(blacknum < whitenum) :
-#         win = -1
-    
-#     print("黒：白＝{}：{}".format(blacknum,whitenum))
-#     if(win != 0) :
-#         print("{}の勝ち".format(toS(win)))
-#     else :
-#         print("引き分け")
-
-    
-

@@ -1,28 +1,24 @@
-from datetime import datetime
-import logging
-from flask import Flask, request, jsonify
-from flask import send_file
+from flask import Flask, request
 from flask_cors import CORS
-import io
 import matplotlib
 matplotlib.use('Agg')
-import matplotlib.pyplot as plt
-import torch
-import torch.nn as nn
-import numpy as np
-from model import Model
 from generate import VAEModelHandler
 from othello import Othello
-# from data import DataSet, get_data_loader
+from dotenv import load_dotenv
 import os
 
+load_dotenv()
 
-from torch.utils.tensorboard import SummaryWriter  # Add this line
-from torch.optim import Adam
+cors_host = os.getenv('CORS_HOST')
+cors_port = os.getenv('CORS_PORT')
+cors_origin = "http://" + cors_host + ":" + cors_port
+
+host = os.getenv('FLASK_RUN_HOST')
+port = os.getenv('FLASK_RUN_PORT')
 
 
 app = Flask(__name__)
-cors = CORS(app, origins='http://localhost:3000') 
+cors = CORS(app, origins=cors_origin) 
 model_handler = None
 othello_board = None
 
@@ -40,7 +36,6 @@ def othello_play():
         print('Othello Board not initialized')
         return 'Othello Board not initialized'
     data = request.get_json()
-    # print(data)
     return othello_board.get_next_board(data)
 
 
@@ -57,12 +52,10 @@ def generate():
     if model_handler is None:
         return 'Model not loaded'
     data = request.get_json()
-    # print(data)
     return model_handler.runtime_generate(data)
 
 
 
 if __name__ == '__main__' :
-    app.run(host='localhost', port=8080, debug=True)
-    
+    app.run(host=host, port=port, debug=True)
 
