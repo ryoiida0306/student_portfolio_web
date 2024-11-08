@@ -13,7 +13,8 @@ export default function Topbar() {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
               <Nav.Link href="/">Home</Nav.Link>
-              <Nav.Link href="/introduction">introduction</Nav.Link>
+              <Nav.Link href="/introduction">Introduction</Nav.Link>
+              <Nav.Link href="/promotion">Promotion</Nav.Link>
               <NavDropdown title="Dropdown" id="basic-nav-dropdown">
                 <NavDropdown.Item href="/work/ai/vae">AIs</NavDropdown.Item>
                 <NavDropdown.Item href="/work/algorithm/othello">algorithm</NavDropdown.Item>
